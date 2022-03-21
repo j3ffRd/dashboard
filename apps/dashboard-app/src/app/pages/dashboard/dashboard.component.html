@@ -1,0 +1,10 @@
+<h1>Dashboard</h1>
+
+<app-accounts class="accounts" 
+              [accounts]="accounts$ | async">
+              (selectAccount)="selectAccount($event)"
+</app-accounts>
+
+<app-transactions class="transactions" 
+                  [transactions]="transactions$ | async">
+</app-transactions>

@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "angular-dashboard",
+            "prefix": "app",
             "style": "kebab-case"
           }
         ]

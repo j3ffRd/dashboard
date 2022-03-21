@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@angular-dashboard/dashboard-core": ["libs/dashboard-core/src/index.ts"]
+      "@dashboard-core": ["libs/dashboard-core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
