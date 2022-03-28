@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/dashboard-header",
+  "sourceRoot": "libs/dashboard-header/src",
+  "prefix": "angular-dashboard",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/dashboard-header"],
+      "options": {
+        "jestConfig": "libs/dashboard-header/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/dashboard-header/src/**/*.ts",
+          "libs/dashboard-header/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

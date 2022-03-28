@@ -3,6 +3,8 @@
   "projects": {
     "dashboard-app": "apps/dashboard-app",
     "dashboard-app-e2e": "apps/dashboard-app-e2e",
-    "dashboard-core": "libs/dashboard-core"
+    "dashboard-core": "libs/dashboard-core",
+    "dashboard-header": "libs/dashboard-header",
+    "dashboard-menu": "libs/dashboard-menu"
   }
 }
