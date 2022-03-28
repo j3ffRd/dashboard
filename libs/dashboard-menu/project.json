@@ -2,7 +2,7 @@
   "projectType": "library",
   "root": "libs/dashboard-menu",
   "sourceRoot": "libs/dashboard-menu/src",
-  "prefix": "angular-dashboard",
+  "prefix": "dashboard",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",

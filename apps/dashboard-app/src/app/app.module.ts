@@ -14,6 +14,8 @@ import { GetLoginUseCaseFactory, IExternalAuthenticationProvider, LoginProvider,
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserDto } from '@dashboard-core';
+import { DashboardHeaderModule } from '@dashboard-header';
+import { DashboardMenuModule } from '@dashboard-menu';
 
 export const IAuthenticationProvider = new InjectionToken<IExternalAuthenticationProvider>(
   'IExternalAuthenticationProvider',
@@ -28,6 +30,8 @@ export const IAuthenticationProvider = new InjectionToken<IExternalAuthenticatio
     CoreModule,
     HttpClientModule,
     SharedModule,
+    DashboardHeaderModule,
+    DashboardMenuModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],

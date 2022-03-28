@@ -16,10 +16,10 @@
     "strictNullChecks": false,
     "baseUrl": ".",
     "paths": {
-      "@angular-dashboard/dashboard-header": [
+      "@dashboard-header": [
         "libs/dashboard-header/src/index.ts"
       ],
-      "@angular-dashboard/dashboard-menu": ["libs/dashboard-menu/src/index.ts"],
+      "@dashboard-menu": ["libs/dashboard-menu/src/index.ts"],
       "@dashboard-core": ["libs/dashboard-core/src/index.ts"]
     }
   },

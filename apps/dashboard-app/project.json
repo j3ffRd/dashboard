@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/dashboard-app",
   "sourceRoot": "apps/dashboard-app/src",
-  "prefix": "angular-dashboard",
+  "prefix": "dashboard",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
