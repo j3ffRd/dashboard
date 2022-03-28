@@ -12,7 +12,7 @@ export class LoginPageComponent {
   constructor(private loginUseCase: LoginUseCase, private router: Router) {}
 
   async loginWithGoogle(): Promise<void> {
-    await this.loginUseCase.loginWithGoogle();
-    this.router.navigate(['/']);
+    const user = await this.loginUseCase.loginWithGoogle();
+    this.router.navigate([`dashboard/${user.id}`]);
   }
 }

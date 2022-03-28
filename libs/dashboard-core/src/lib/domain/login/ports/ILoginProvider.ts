@@ -1,7 +1,6 @@
-import { User } from '../entities/user';
-import { Credential } from '../entities/credential';
+import { Login } from '../entities/login';
 
 export interface ILoginProvider {
-  loginWithGoogle(): Promise<{ user: User; credential: Credential }>;
-  loginWithGitHub(): Promise<{ user: User; credential: Credential }>;
+  loginWithGoogle(): Promise<Login>;
+  loginWithGitHub(): Promise<Login>;
 }

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuardService } from './core/services/authentication.guard';
+import { AuthGuardService } from './core/guards/authentication.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard/:id',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then((m) => m.DashBoardPageModule),
     canActivate: [AuthGuardService],
   },
@@ -18,7 +18,8 @@ const routes: Routes = [
   },
   {
     path: '**',
-    loadChildren: () => import('./pages/dashboard/dashboard.module').then((m) => m.DashBoardPageModule),
+    loadChildren: () => import('./pages/login/login.module').then((m) => m.LoginPageModule),
+    canActivate: [AuthGuardService],
   },
 ];
 

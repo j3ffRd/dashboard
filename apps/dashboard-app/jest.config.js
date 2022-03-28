@@ -8,6 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
+  testRunner: 'jest-jasmine2',
   coverageDirectory: '../../coverage/apps/dashboard-app',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',

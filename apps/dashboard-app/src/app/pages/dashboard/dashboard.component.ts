@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Account, AccountTransaction, AccountsUseCase } from '@dashboard-core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -9,15 +10,14 @@ import { Account, AccountTransaction, AccountsUseCase } from '@dashboard-core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardPageComponent implements OnInit {
-  @Input() userId!: number;
-
   accounts$: Observable<Account[]> | undefined;
   transactions$: Observable<AccountTransaction[]> | undefined;
 
-  constructor(private accountUseCase: AccountsUseCase) {}
+  constructor(private accountUseCase: AccountsUseCase, private router: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.accounts$ = this.accountUseCase.loadAccounts(this.userId).pipe();
+    const userId = this.router.snapshot.params['id'];
+    this.accounts$ = this.accountUseCase.loadAccounts(userId);
   }
 
   selectAccount(account: Account) {

@@ -1,25 +1,45 @@
-import { Injectable } from '@angular/core';
 import { User } from '../../../domain/login/entities/user';
 import { Credential } from '../../../domain/login/entities/credential';
 import { UserDto } from '../dto/userDto';
 import { CredentialDto } from '../dto/credentialDto';
+import { Login } from '../../../domain/login/entities/login';
+import { LoginDto } from '../dto/loginDto';
 
-@Injectable({ providedIn: 'root' })
 export class AuthenticationMapper {
-  mapUser(user: UserDto): User {
+
+  map(loginDto: LoginDto): Login{
+    if(!loginDto){
+      return null;
+    }
+
     return {
-      id: user.uid,
-      displayName: user.displayName,
-      email: user.email,
-      photoUrl: user.photoURL,
+      user: this.mapUser(loginDto.user),
+      credential: this.mapCredential(loginDto.credential)
+    }
+  }
+
+  private mapUser(userDto: UserDto): User {
+    if(!userDto) {
+      return null;
+    }
+
+    return {
+      id: userDto.uid,
+      displayName: userDto.displayName,
+      email: userDto.email,
+      photoUrl: userDto.photoURL,
     };
   }
 
-  mapCredential(credential: CredentialDto): Credential {
+  private mapCredential(credentialDto: CredentialDto): Credential {
+    if(!credentialDto) {
+      return null;
+    }
+
     return {
-      idToken: credential.idToken,
-      accessToken: credential.accessToken,
-      provider: credential.providerId,
+      idToken: credentialDto.idToken,
+      accessToken: credentialDto.accessToken,
+      provider: credentialDto.providerId,
     };
   }
 }

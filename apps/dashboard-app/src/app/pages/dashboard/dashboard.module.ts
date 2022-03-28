@@ -6,8 +6,8 @@ import { DashboardPageComponent } from './dashboard.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { AccountsProvider, AccountsProviderFactory, AccountsUseCase,
          GetAccountsUseCaseFactory} from '@dashboard-core';
-import { environment } from './../../../environments/environment';
-import { IHttpClient } from '../../core/core.module';
+import { ENVIRONMENT, IHttpClient } from '../../core/core.module';
+
 const routes: Routes = [
   {
     path: '',
@@ -23,7 +23,7 @@ const routes: Routes = [
     {
       provide: AccountsProvider,
       useFactory: AccountsProviderFactory,
-      deps: [environment, IHttpClient],
+      deps: [ENVIRONMENT, IHttpClient],
     },
     {
       provide: AccountsUseCase,

@@ -13,22 +13,19 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError((error) => {
         if (error instanceof HttpErrorResponse) {
-          if (error.error instanceof ErrorEvent) {
-            this.logger.logError(error.error);
-          } else {
+          if (!(error.error instanceof ErrorEvent)) {
             this.logger.logError(`error status : ${error.status} ${error.statusText}`);
             switch (error.status) {
               case 401:
-                this.router.navigateByUrl('login');
+                this.router.navigate(['login']);
                 break;
               case 403:
-                this.router.navigateByUrl('error/unauthorized');
+                this.router.navigate(['error/unauthorized']);
                 break;
             }
           }
-        } else {
-          this.logger.logError(error);
         }
+
         return throwError(() => error);
       }),
     );

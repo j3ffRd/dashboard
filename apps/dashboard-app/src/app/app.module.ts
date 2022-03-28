@@ -8,10 +8,11 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { GetLoginUseCaseFactory, IExternalAuthenticationProvider, LoginProvider,
          LoginProviderFactory, LoginUseCase } from '@dashboard-core';
 import * as auth from 'firebase/auth';
-import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserDto } from '@dashboard-core';
 
 export const IAuthenticationProvider = new InjectionToken<IExternalAuthenticationProvider>(

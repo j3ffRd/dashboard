@@ -1,11 +1,11 @@
 import { ErrorHandler, InjectionToken, NgModule } from '@angular/core';
 import { HttpClient as AngularHttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
-import { AppConfiguration, HttpClient, LoggerProvider, LogProviderFactory,} from '@dashboard-core';
+import { AppConfiguration, HttpClient, LoggerProvider, LogProviderFactory} from '@dashboard-core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { GlobalHttpInterceptorService } from './services/httpError.interceptor';
-import { GlobalErrorHandlerService } from './services/globalError.handler';
-import { JwtInterceptorService } from './services/jwt.interceptor';
+import { GlobalHttpInterceptorService } from './http-interceptors/httpError.interceptor';
+import { GlobalErrorHandlerService } from './error-handlers/globalError.handler';
+import { JwtInterceptorService } from './http-interceptors/jwt.interceptor';
 
 export const IHttpClient = new InjectionToken<HttpClient>('HttpClient');
 
@@ -15,7 +15,7 @@ export const ENVIRONMENT = new InjectionToken<AppConfiguration>('Environment');
   imports: [],
   exports: [],
   providers: [
-    { provide: environment, useValue: ENVIRONMENT },
+    { provide: ENVIRONMENT, useValue: environment },
     { provide: HTTP_INTERCEPTORS, useClass: GlobalHttpInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
     { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
@@ -40,7 +40,7 @@ export const ENVIRONMENT = new InjectionToken<AppConfiguration>('Environment');
     {
       provide: LoggerProvider,
       useFactory: LogProviderFactory,
-      deps: [environment, IHttpClient],
+      deps: [ENVIRONMENT, IHttpClient],
     },
   ],
 })

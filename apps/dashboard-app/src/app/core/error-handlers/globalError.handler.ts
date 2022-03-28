@@ -12,6 +12,6 @@ export class GlobalErrorHandlerService implements ErrorHandler {
 
     logger.logError(error);
 
-    router.navigate(['/error']);
+    router.navigate(['error']);
   }
 }
