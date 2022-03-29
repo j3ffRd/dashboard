@@ -16,7 +16,12 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/dashboard-app/src/favicon.ico",
-          "apps/dashboard-app/src/assets"
+          "apps/dashboard-app/src/assets",
+          {
+            "glob": "**/*",
+            "input": "./libs/dashboard-header/src/assets/",
+            "output": "./assets"
+          }       
         ],
         "styles": ["apps/dashboard-app/src/styles.scss"],
         "scripts": []

@@ -1,3 +1,41 @@
-header{
-    height: 45px;
+.header {
+    height: 60px;
+    background-color: #ffffff;
+    color: #6a6565;
+    border-bottom: 1px solid #dfdfdf;
+
+    .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 0px 10px 0px 10px;
+        font-size: 24px;
+
+        .user {
+            display: inline-flex;
+            align-items: center;
+            font-size: 15px;
+           
+            img {
+                margin-right: 5px;
+                width: 24px;
+                height: 24px;
+                display:inline-block;
+                border-radius: 50%;
+                background-position: 70% 50%;
+                background-size: cover;
+            }
+        }
+
+        .item {
+            cursor:pointer;
+            margin: 0px 15px 0px 15px;
+        }
+
+        .item-flag {
+            height: 18px;
+        }
+    }
 }

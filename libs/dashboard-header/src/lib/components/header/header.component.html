@@ -1,3 +1,15 @@
-<header>
-    header
-</header>
+<div class="header">
+    <div class="container">
+        <span class="item material-icons-outlined">menu</span>
+        <div class="right-items">
+            <span class="item item-flag flag-icon flag-icon-us"></span>
+            <span class="item material-icons-outlined">fullscreen</span>      
+            <i class="item pi pi-bell mr-1 p-text-secondary" pBadge  [value]="notifications.length.toString()" style="font-size: 1.3rem" severity="danger"></i>   
+            <div class="item user">
+                <img src="{{user?.photoUrl}}./../../../assets/user.png" alt="user" class="rounded">
+                <span>{{user?.displayName}}</span>
+            </div>
+            <span class="item material-icons-outlined">settings</span>            
+        </div>
+    </div>   
+</div>

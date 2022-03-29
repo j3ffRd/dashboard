@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { User } from '@dashboard-core';
 
 @Component({
   selector: 'dashboard-header',
@@ -6,8 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  
-
- 
-
+  @Input() user: User;
+  @Input() notifications: string[] = [];
 }

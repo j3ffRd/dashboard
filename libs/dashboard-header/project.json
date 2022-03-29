@@ -2,7 +2,7 @@
   "projectType": "library",
   "root": "libs/dashboard-header",
   "sourceRoot": "libs/dashboard-header/src",
-  "prefix": "dashboard",
+  "prefix": "dashboard", 
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
