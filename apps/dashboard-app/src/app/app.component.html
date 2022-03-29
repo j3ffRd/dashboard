@@ -1,11 +1,21 @@
 <header>
-  <dashboard-header></dashboard-header>
+  <dashboard-header [languages]="languages" 
+                    [user]="user" 
+                    (toggleMenu)="toggleMenu()" 
+                    (toggleSideBar)="toggleSideBar()"
+                    (selectLanguage) ="selectLanguage($event)">
+  </dashboard-header>
 </header>
 
-<aside>
-  <dashboard-menu></dashboard-menu>
-</aside>
+<div class="layout">
+  <aside class="aside-left">
+    <dashboard-menu [expanded]="menuExpanded" 
+                    [menuItems]="menuItems">
+    </dashboard-menu>
+  </aside>
+  
+  <section class="main">
+    <router-outlet></router-outlet>
+  </section>
 
-<section class="main">
-  <router-outlet></router-outlet>
-</section>
+</div>

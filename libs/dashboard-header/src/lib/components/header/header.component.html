@@ -1,15 +1,17 @@
 <div class="header">
     <div class="container">
-        <span class="item material-icons-outlined">menu</span>
+        <span class="item material-icons-outlined" (click)="onToggleMenu()">{{expanded ? 'menu_open' : 'menu'}}</span>
+        
         <div class="right-items">
-            <span class="item item-flag flag-icon flag-icon-us"></span>
-            <span class="item material-icons-outlined">fullscreen</span>      
-            <i class="item pi pi-bell mr-1 p-text-secondary" pBadge  [value]="notifications.length.toString()" style="font-size: 1.3rem" severity="danger"></i>   
-            <div class="item user">
-                <img src="{{user?.photoUrl}}./../../../assets/user.png" alt="user" class="rounded">
-                <span>{{user?.displayName}}</span>
-            </div>
-            <span class="item material-icons-outlined">settings</span>            
+            <dashboard-header-languages [languages]="languages" (selectLanguage)="onSelectLanguage($event)"></dashboard-header-languages>
+
+            <span class="item material-icons-outlined" (click)="onToggleSideBar()">settings</span>  
+
+            <span class="item item-screen material-icons-outlined">fullscreen</span>   
+
+            <i class="item pi pi-bell mr-1 p-text-secondary" pBadge  [value]="notifications.length.toString()" style="font-size: 1.2rem" severity="danger"></i>   
+            
+            <dashboard-header-user [user]="user"></dashboard-header-user>                      
         </div>
-    </div>   
+    </div>
 </div>

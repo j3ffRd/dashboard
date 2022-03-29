@@ -1,3 +1,19 @@
-<!-- <nav>
-  
-</nav> -->
+<nav class="menu" [@openClose]="expanded ? 'expanded' : 'minimized'" >
+    <ul>
+        <li *ngFor="let menuItem of menuItems" class="item" >
+            <i [class]="'item-icon pi pi-'+ menuItem.icon" style="font-size: 1.1rem" ></i>
+            <span *ngIf="expanded" class="item-label">{{menuItem.label}}</span>
+            <i *ngIf="!selectedItem && menuItem.items.length > 0 && expanded" class="item-expand-icon pi pi-angle-right" (click)="selectedItem = menuItem"></i>
+            <i *ngIf="selectedItem === menuItem && expanded" class="item-expand-icon pi pi-angle-down" (click)="selectedItem = null"></i>
+            <div *ngIf="selectedItem === menuItem">
+                <ul>
+                    <li *ngFor="let subItem of selectedItem.items" class="sub-item">
+                        <i class="item-icon pi pi-angle-right" style="font-size: 1.1rem"></i>
+                        <span *ngIf="expanded" class="item-label">{{subItem.label}}</span>
+                        <i *ngIf="subItem.items.length > 0 && expanded" class="item-expand-icon pi pi-angle-right"></i>                      
+                    </li>
+                </ul>
+            </div> 
+        </li>
+    </ul>
+</nav>

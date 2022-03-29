@@ -1,0 +1,30 @@
+.user {
+    display: inline-flex;
+    align-items: center;
+    font-size: 15px;
+   
+    img {
+        margin-right: 5px;
+        width: 24px;
+        height: 24px;
+        display:inline-block;
+        border-radius: 50%;
+        background-position: 70% 50%;
+        background-size: cover;
+    }
+}
+
+.item-flag {
+    height: 18px;
+}
+
+.link {
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+}
+
+.item {
+    cursor:pointer;
+    margin: 0px 15px 0px 15px;
+}

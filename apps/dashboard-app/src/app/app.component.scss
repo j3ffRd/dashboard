@@ -1,4 +1,16 @@
-.main{
+.layout{
     min-height: calc(100% - 60px);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.main {
+    width: 100%;
     background-color: #f8f8f8;
+    margin-left: 56px;
+}
+
+.aside-left {
+    position: relative;
 }

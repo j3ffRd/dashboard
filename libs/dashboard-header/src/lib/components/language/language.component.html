@@ -1,0 +1,14 @@
+<p-dropdown id="drop" class="language-dropdown" [options]="languages" optionLabel="code" [(ngModel)]="selectedCountry" (onChange)="onSelectLanguage($event)" styleClass="languages" dropdownIcon="pi pi-angle-down">
+    <ng-template pTemplate="selectedItem">
+        <div class="country-item country-item-value" *ngIf="selectedCountry">
+            <span [class]="'item item-flag flag-icon flag-icon-' + selectedCountry.country"></span>
+            <span>{{selectedCountry.code}}</span>
+        </div>
+    </ng-template>
+    <ng-template let-country pTemplate="item">
+        <div class="country-item">
+            <span [class]="'item item-flag flag-icon flag-icon-'  + country.country"></span>
+            <span>{{country.code}}</span>
+        </div>
+    </ng-template>
+</p-dropdown>

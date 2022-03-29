@@ -1,0 +1,50 @@
+.menu{
+    position: absolute;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    color: #848484;
+    border-right: 1px solid lightgrey;
+    height: 100%;
+    overflow: auto;
+
+    ul {
+        padding: 5px 0px 0px 0px;
+        margin:0;
+
+        li {        
+            list-style: none;
+            padding: 0;
+            display: block;            
+            padding: 20px 0px 20px 17px;
+            cursor: pointer;
+        }
+
+        li.item {
+            border-bottom: 1px solid #edf1f7;
+        }
+    
+        .item-link:link, .item-link:visited, .item-link:hover, .item-link:active {
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .item-icon{
+          margin-right: 25px;
+          display:inline;
+        }
+
+        .item-label{
+            display:inline;
+        }
+
+        .item-expand-icon{
+            position: absolute;
+            right: 20px;
+            cursor: pointer;
+        }
+    }
+}

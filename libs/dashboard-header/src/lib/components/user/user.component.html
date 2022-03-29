@@ -1,0 +1,11 @@
+<div class="item user" (click)="op.toggle($event)">
+    <img src="{{user?.photoUrl}}./../../../assets/user.png" alt="user" class="rounded">
+    <span>{{user?.displayName}}</span>
+</div>
+
+<p-overlayPanel #op>
+    <ng-template pTemplate>
+        <a class="link" href="#">Profile </a>
+        <a class="link" href="#">Logout </a>
+    </ng-template>
+</p-overlayPanel>
