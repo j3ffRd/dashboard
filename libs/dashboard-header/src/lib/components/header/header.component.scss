@@ -20,11 +20,23 @@
 
         .item {
             cursor:pointer;
-            margin: 0px 15px 0px 15px;
+            margin: 0px 20px 0px 20px;
         }
 
         .item-screen{
             font-size: 28px;
+        }
+
+        .comments{
+            border-left: solid 1px lightgray;
+            width: 64px;
+            font-size: 28px;
+
+            i {
+                font-size: 19px;
+            }
+
+            
         }
     }
 }

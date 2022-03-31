@@ -1,4 +1,10 @@
-<nav class="menu" [@openClose]="expanded ? 'expanded' : 'minimized'" >
+<nav class="menu" [ngClass]="expanded? 'expanded': 'minimized'" >
+    <div class="user" *ngIf="expanded">
+        <img src="{{user?.photoUrl}}./../../../assets/macgyver.png" alt="user" >
+        <span class="user-name">{{user?.displayName}}</span>
+        <span class="user-email">{{user?.email}}</span>
+    </div>
+
     <ul>
         <li *ngFor="let menuItem of menuItems" class="item" >
             <i [class]="'item-icon pi pi-'+ menuItem.icon" style="font-size: 1.1rem" ></i>

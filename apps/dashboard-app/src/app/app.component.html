@@ -3,6 +3,7 @@
                     [user]="user" 
                     (toggleMenu)="toggleMenu()" 
                     (toggleSideBar)="toggleSideBar()"
+                    (toggleChatBar)="toggleChatBar()"
                     (selectLanguage) ="selectLanguage($event)">
   </dashboard-header>
 </header>
@@ -10,6 +11,7 @@
 <div class="layout">
   <aside class="aside-left">
     <dashboard-menu [expanded]="menuExpanded" 
+                    [user]="user"
                     [menuItems]="menuItems">
     </dashboard-menu>
   </aside>
@@ -18,4 +20,7 @@
     <router-outlet></router-outlet>
   </section>
 
+  <aside class="aside-right">
+    <dashboard-chat-bar [expanded]="chatBarExpanded"></dashboard-chat-bar>
+  </aside>
 </div>

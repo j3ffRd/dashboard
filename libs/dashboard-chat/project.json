@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/dashboard-chat",
+  "sourceRoot": "libs/dashboard-chat/src",
+  "prefix": "dashboard",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/dashboard-chat"],
+      "options": {
+        "jestConfig": "libs/dashboard-chat/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/dashboard-chat/src/**/*.ts",
+          "libs/dashboard-chat/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

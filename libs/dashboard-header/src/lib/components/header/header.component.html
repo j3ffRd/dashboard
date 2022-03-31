@@ -7,11 +7,16 @@
 
             <span class="item material-icons-outlined" (click)="onToggleSideBar()">settings</span>  
 
-            <span class="item item-screen material-icons-outlined">fullscreen</span>   
+            <span class="item item-screen material-icons-outlined" (click)="toggleFullScreen()">{{fullScreen ? 'fullscreen_exit' : 'fullscreen'}}</span>   
 
             <i class="item pi pi-bell mr-1 p-text-secondary" pBadge  [value]="notifications.length.toString()" style="font-size: 1.2rem" severity="danger"></i>   
             
-            <dashboard-header-user [user]="user"></dashboard-header-user>                      
+            <dashboard-header-user [user]="user" class="item"></dashboard-header-user> 
+            
+            <div class="comments" (click)="onToggleChatBar()">
+                <i class="item pi pi-comments"></i>
+            </div>
+             
         </div>
     </div>
 </div>

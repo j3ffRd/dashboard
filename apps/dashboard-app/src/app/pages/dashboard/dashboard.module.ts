@@ -5,7 +5,9 @@ import { AccountsComponent } from './components/accounts/accounts.component';
 import { DashboardPageComponent } from './dashboard.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { AccountsProvider, AccountsProviderFactory, AccountsUseCase,
-         GetAccountsUseCaseFactory} from '@dashboard-core';
+         GetAccountsUseCaseFactory,
+         InMemoryAccountsProvider,
+         InMemoryAccountsProviderFactory} from '@dashboard-core';
 import { ENVIRONMENT, IHttpClient } from '../../core/core.module';
 
 const routes: Routes = [
@@ -21,14 +23,14 @@ const routes: Routes = [
   exports: [RouterModule],
   providers:[
     {
-      provide: AccountsProvider,
-      useFactory: AccountsProviderFactory,
+      provide: InMemoryAccountsProvider,
+      useFactory: InMemoryAccountsProviderFactory,
       deps: [ENVIRONMENT, IHttpClient],
     },
     {
       provide: AccountsUseCase,
       useFactory: GetAccountsUseCaseFactory,
-      deps: [AccountsProvider],
+      deps: [InMemoryAccountsProvider],
     },
   ]
 })

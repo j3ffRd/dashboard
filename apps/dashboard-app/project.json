@@ -21,7 +21,12 @@
             "glob": "**/*",
             "input": "./libs/dashboard-header/src/assets/",
             "output": "./assets"
-          }       
+          },
+          {
+            "glob": "**/*",
+            "input": "./libs/dashboard-chat/src/assets/",
+            "output": "./assets"
+          }
         ],
         "styles": ["apps/dashboard-app/src/styles.scss"],
         "scripts": []

@@ -1,9 +1,8 @@
-import { User } from './../../../domain/login/entities/user';
 import { ILoginProvider } from './../../../domain/login/ports/ILoginProvider';
-import { Credential } from './../../../domain/login/entities/credential';
 import { AuthenticationMapper } from '../mappers/authentication.mapper';
 import { IExternalAuthenticationProvider } from './externalAuthenticationProvider';
 import { LoginDto } from '../dto/loginDto';
+import { Login } from '../../../domain';
 
 export const LoginProviderFactory = (externalProvider: IExternalAuthenticationProvider) =>
   new LoginProvider(externalProvider, new AuthenticationMapper());
@@ -11,15 +10,15 @@ export const LoginProviderFactory = (externalProvider: IExternalAuthenticationPr
 export class LoginProvider implements ILoginProvider {
   constructor(private externalProvider: IExternalAuthenticationProvider, private mapper: AuthenticationMapper) {}
 
-  loginWithGoogle(): Promise<{ user: User; credential: Credential }> {
+  loginWithGoogle(): Promise<Login> {
     return this.login(this.externalProvider.loginWithGoogle);
   }
 
-  loginWithGitHub(): Promise<{ user: User; credential: Credential }> {
+  loginWithGitHub(): Promise<Login> {
     return this.login(this.externalProvider.loginWithGitHub);
   }
 
-  private login(provider: any): Promise<{ user: User; credential: Credential }> {
+  private login(provider: any): Promise<Login> {
     return provider().then((data: LoginDto) => this.mapper.map(data));
   }
 }

@@ -1,7 +1,7 @@
 import { ErrorHandler, InjectionToken, NgModule } from '@angular/core';
 import { HttpClient as AngularHttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
-import { AppConfiguration, HttpClient, LoggerProvider, LogProviderFactory} from '@dashboard-core';
+import { AppConfiguration, ChatsUseCase, ChatsUseCaseFactory, HttpClient, InMemoryChatProvider, InMemoryChatProviderFactory, LoggerProvider, LogProviderFactory} from '@dashboard-core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GlobalHttpInterceptorService } from './http-interceptors/httpError.interceptor';
 import { GlobalErrorHandlerService } from './error-handlers/globalError.handler';
@@ -41,6 +41,16 @@ export const ENVIRONMENT = new InjectionToken<AppConfiguration>('Environment');
       provide: LoggerProvider,
       useFactory: LogProviderFactory,
       deps: [ENVIRONMENT, IHttpClient],
+    },
+    {
+      provide: InMemoryChatProvider,
+      useFactory: InMemoryChatProviderFactory,
+      deps: [ENVIRONMENT, IHttpClient],
+    },
+    {
+      provide: ChatsUseCase,
+      useFactory: ChatsUseCaseFactory,
+      deps: [InMemoryChatProvider],
     },
   ],
 })

@@ -1,6 +1,9 @@
 .language-dropdown{
     .languages {
         border: none;
+        &.p-focus {
+            box-shadow: 0 0 0 1px rgb(212, 212, 212) !important;
+        }  
     }
     
     .item {

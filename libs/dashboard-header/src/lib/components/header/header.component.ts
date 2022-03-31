@@ -14,8 +14,10 @@ export class HeaderComponent {
   @Output() toggleMenu = new EventEmitter<void>();
   @Output() selectLanguage = new EventEmitter<Language>();
   @Output() toggleSideBar = new EventEmitter<void>();
+  @Output() toggleChatBar = new EventEmitter<void>();
 
   expanded: boolean;
+  fullScreen: boolean;
   
   onToggleMenu(): void {
     this.expanded = !this.expanded;
@@ -26,7 +28,23 @@ export class HeaderComponent {
     this.toggleSideBar.emit();
   }
 
+  onToggleChatBar(): void {
+    this.toggleChatBar.emit();
+  }
+
   onSelectLanguage(value: Language) {
     this.selectLanguage.emit(value);
   }
+
+  toggleFullScreen() {
+    const elem = document.documentElement;
+
+    if (!this.fullScreen) {
+      elem.requestFullscreen();
+    }
+    else {
+      document.exitFullscreen();
+    }
+    this.fullScreen = !this.fullScreen;
+  } 
 }

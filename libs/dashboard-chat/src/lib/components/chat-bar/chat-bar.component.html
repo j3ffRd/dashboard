@@ -1,0 +1,19 @@
+<div class="chat-bar" [ngClass]="expanded? 'open-side-bar': 'close-side-bar'">
+    <div class="faces">
+        <div class="container">
+            <div class="picture">
+                <div class="add-user-icon">
+                    <i class="pi pi-user-plus"></i>
+                </div>
+                
+            </div>
+            <div *ngFor="let chat of chats$ | async" class="picture">
+                <img src="{{chat?.to?.photoUrl || './../../../assets/user.png'}}" alt="user" > 
+            </div>
+        </div>
+       
+    </div>
+    <div class="messages">
+
+    </div>
+</div>

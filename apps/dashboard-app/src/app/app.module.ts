@@ -9,13 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { GetLoginUseCaseFactory, IExternalAuthenticationProvider, LoginProvider,
-         LoginProviderFactory, LoginUseCase } from '@dashboard-core';
+import { GetLoginUseCaseFactory, IExternalAuthenticationProvider, LoginUseCase, InMemoryLoginProvider, 
+         InMemoryLoginProviderFactory } from '@dashboard-core';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserDto } from '@dashboard-core';
 import { DashboardHeaderModule } from '@dashboard-header';
 import { DashboardMenuModule } from '@dashboard-menu';
+import { DashboardChatModule } from '@dashboard/dashboard-chat';
 
 export const IAuthenticationProvider = new InjectionToken<IExternalAuthenticationProvider>(
   'IExternalAuthenticationProvider',
@@ -32,6 +33,7 @@ export const IAuthenticationProvider = new InjectionToken<IExternalAuthenticatio
     SharedModule,
     DashboardHeaderModule,
     DashboardMenuModule,
+    DashboardChatModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
@@ -53,15 +55,15 @@ export const IAuthenticationProvider = new InjectionToken<IExternalAuthenticatio
       deps: [AngularFireAuth],
     },
     {
-      provide: LoginProvider,
-      useFactory: LoginProviderFactory,
+      provide: InMemoryLoginProvider,
+      useFactory: InMemoryLoginProviderFactory,
       deps: [IAuthenticationProvider],
     },
     {
       provide: LoginUseCase,
       useFactory: GetLoginUseCaseFactory,
-      deps: [LoginProvider],
-    },
+      deps: [InMemoryLoginProvider],
+    }
   ],
   exports: [],
   bootstrap: [AppComponent],

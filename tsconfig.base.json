@@ -16,11 +16,10 @@
     "strictNullChecks": false,
     "baseUrl": ".",
     "paths": {
-      "@dashboard-header": [
-        "libs/dashboard-header/src/index.ts"
-      ],
+      "@dashboard-core": ["libs/dashboard-core/src/index.ts"],
+      "@dashboard-header": ["libs/dashboard-header/src/index.ts"],
       "@dashboard-menu": ["libs/dashboard-menu/src/index.ts"],
-      "@dashboard-core": ["libs/dashboard-core/src/index.ts"]
+      "@dashboard/dashboard-chat": ["libs/dashboard-chat/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

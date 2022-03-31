@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MenuItem } from '@dashboard-menu';
 import { Language } from '@dashboard-header';
-import { User } from '@dashboard-core';
+import { LoginUseCase, User } from '@dashboard-core';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +9,21 @@ import { User } from '@dashboard-core';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   menuExpanded: boolean;
   sideBarExpanded: boolean;
+  chatBarExpanded: boolean;
   menuItems: MenuItem[];
   languages: Language[];
   user: User;
 
-  constructor(){
+  constructor(private loginUseCase: LoginUseCase) {    
+  }
+
+  async ngOnInit(): Promise<void> {
     this.menuItems = this.getMenuItems();
     this.languages = [{code: 'En', country: 'us', selected: true}, {code: 'Fr', country: 'fr', selected: false}];
-    this.user = <User>{ displayName: 'John Doe', photoUrl: ''};
+    this.user = await this.loginUseCase.loginWithGoogle();
   }
 
   toggleMenu(): void {
@@ -27,8 +31,11 @@ export class AppComponent {
   }
 
   toggleSideBar(): void {
-    this.sideBarExpanded = !this.sideBarExpanded;
-    console.log('SideBar', this.sideBarExpanded);
+    this.sideBarExpanded = !this.sideBarExpanded;    
+  }
+
+  toggleChatBar(): void {
+    this.chatBarExpanded = !this.chatBarExpanded;
   }
 
   selectLanguage(language: Language) {
